@@ -7,8 +7,8 @@ class DataHandler:
     __TRAINING_SAMPLES_SIZE = 250000
     __TEST_SAMPLES_SIZE = 550000
     __EMPTY_VALUE = -999.0
-    __DEFAULT_PATH_TO_TRAINING_FILE = 'training/training.csv'
-    __DEFAULT_PATH_TO_TEST_FILE = 'test/test.csv'
+    __DEFAULT_PATH_TO_TRAINING_FILE = 'resources/training.csv'
+    __DEFAULT_PATH_TO_TEST_FILE = 'resources/test.csv'
     
     def __init__(self):
         pass
@@ -31,7 +31,7 @@ class DataHandler:
                     dataNew[sampleNumber][featureIndex] = None
                 featureIndex += 1
             sampleNumber += 1
-        print "Remove marks about empty values has done!"
+        print("Remove marks about empty values has done!")
         return dataNew
     
     def ReadTrainingData(self, traingFile = __DEFAULT_PATH_TO_TRAINING_FILE,
@@ -49,7 +49,7 @@ class DataHandler:
         # These third colmuns must be skip
         data = trainingData.ix[0:samplesSize - 1,1:-2].values
         target = trainingData["Label"][:samplesSize]
-        print "Training samples has read!"
+        print("Training samples has read!")
 #        return self.RemoveMarksAboutEmptyValues(data), target
         return data, target
 
@@ -65,5 +65,5 @@ class DataHandler:
         # The second index is a number of column
         # The first column is 'EventId' must be skip
         data = testData.ix[0:samplesSize - 1,1:].values
-        print "Test samples has read!"
+        print("Test samples has read!")
         return data

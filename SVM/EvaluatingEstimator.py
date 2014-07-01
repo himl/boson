@@ -35,7 +35,7 @@ def CrossValidation(estimator, data, target, foldsNumber = DEFAULT_FOLDS_NUMBER)
         clf = estimator.fit(x_train, y_train)
         scores[index] = clf.score(x_test, y_test)
         index += 1
-        print "Iteration %d from %d has done!" % (index, foldsNumber)
+        print("Iteration %d from %d has done!" % (index, foldsNumber))
     finish = time.time()
     
     return scores.mean(), scores.std() * 2, (finish - start)
