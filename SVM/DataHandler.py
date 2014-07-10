@@ -47,8 +47,9 @@ class DataHandler:
         # The second index is a number of column
         # The first column is 'EventId', the last but one 'Weight', the last 'Label'.
         # These third columns must be skip
+
         data = training_data.ix[0:samples_size - 1, 1:-2].values
-        target = training_data["Label"][:samples_size]
+        target = training_data["Label"][:samples_size].values
         print("Training samples has read!")
 #        return self.remove_empty_values_marks(data), target
         return data, target

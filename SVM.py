@@ -8,11 +8,14 @@ from sklearn import svm
 
 if __name__ == "__main__":
     data_handler = DataHandler()
-    samples_size = 20
-    data, target = data_handler.read_training_data(samples_size=samples_size)
+    all_data, all_targets = data_handler.read_training_data()
+
+    samples_size = 15000
+    data = all_data[-samples_size:]
+    targets = all_targets[-samples_size:]
 
     estimator = svm.SVC(kernel='linear', C=1)
-    mean, standart_deviation, time = cross_validation(estimator, data, target)
+    mean, standart_deviation, time = cross_validation(estimator, data, targets)
 
     print("Accuracy: %0.2f (+/- %0.2f)" % (mean, standart_deviation))
     print("Time: %0.2f" % time)
