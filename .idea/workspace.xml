@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55af5ac6-6788-41cc-8a68-ef361cdb9119" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kNN.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/Report.xlsx" afterPath="$PROJECT_DIR$/report/Report.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SVM/EvaluatingEstimator.py" afterPath="$PROJECT_DIR$/SVM/EvaluatingEstimator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="boson.iws" />
@@ -41,8 +39,8 @@
       <file leaf-file-name="EvaluatingEstimator.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SVM/EvaluatingEstimator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="1056">
-              <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1056">
+              <caret line="2" column="24" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -63,8 +61,8 @@
       <file leaf-file-name="kNN.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74595845" vertical-offset="337" max-vertical-offset="858">
-              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.5935335" vertical-offset="249" max-vertical-offset="858">
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding>
                 <element signature="e#117#156#0" expanded="true" />
               </folding>
@@ -95,8 +93,8 @@
         <option value="$PROJECT_DIR$/SVM/DataHandler.py" />
         <option value="$PROJECT_DIR$/SVM.py" />
         <option value="$PROJECT_DIR$/SVM/EvaluatingEstimator.py" />
-        <option value="$PROJECT_DIR$/kNN.py" />
         <option value="$PROJECT_DIR$/PCA_SVM.py" />
+        <option value="$PROJECT_DIR$/kNN.py" />
       </list>
     </option>
   </component>
@@ -626,16 +624,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SVM/EvaluatingEstimator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="579" max-vertical-offset="1056">
-          <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1056">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74595845" vertical-offset="337" max-vertical-offset="858">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.5935335" vertical-offset="249" max-vertical-offset="858">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
           <folding>
             <element signature="e#117#156#0" expanded="true" />
           </folding>
