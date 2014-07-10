@@ -23,7 +23,7 @@ def cross_validation(estimator, data, target, folds_number=DEFAULT_FOLDS_NUMBER)
     # 'scores' is numpy array. An index is a number of a fold. A value is a percent of right
     # predicted samples from a test.
     import numpy as np
-    scores = np.empty(folds_number)
+    scores = np.zeros(folds_number)
 
     import time
     start = time.time()
