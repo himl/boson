@@ -2,7 +2,7 @@
 """ PCA + Linear SVM """
 
 import numpy as np
-from time import time
+# from time import time
 
 from SVM.DataHandler import DataHandler
 from sklearn.cross_validation import KFold
