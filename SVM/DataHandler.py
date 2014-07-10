@@ -65,6 +65,6 @@ class DataHandler:
 
         # The second index is a number of column
         # The first column is 'EventId' must be skip
-        data = test_data.ix[0:samples_size - 1, 1:].values
+        data = test_data.ix[:samples_size - 1, 1:].values
         print("Test samples has read!")
         return data

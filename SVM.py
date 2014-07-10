@@ -10,7 +10,7 @@ if __name__ == "__main__":
     data_handler = DataHandler()
     all_data, all_targets = data_handler.read_training_data()
 
-    samples_size = 15000
+    samples_size = 5000
     data = all_data[-samples_size:]
     targets = all_targets[-samples_size:]
 
@@ -19,3 +19,4 @@ if __name__ == "__main__":
 
     print("Accuracy: %0.2f (+/- %0.2f)" % (mean, standart_deviation))
     print("Time: %0.2f" % time)
+
