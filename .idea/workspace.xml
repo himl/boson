@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55af5ac6-6788-41cc-8a68-ef361cdb9119" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kNN.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/Report.xlsx" afterPath="$PROJECT_DIR$/report/Report.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SVM/DataHandler.py" afterPath="$PROJECT_DIR$/SVM/DataHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SVM/EvaluatingEstimator.py" afterPath="$PROJECT_DIR$/SVM/EvaluatingEstimator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SVM.py" afterPath="$PROJECT_DIR$/SVM.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="boson.iws" />
@@ -32,7 +31,7 @@
       <file leaf-file-name="DataHandler.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SVM/DataHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="726" max-vertical-offset="1672">
+            <state vertical-scroll-proportion="0.0" vertical-offset="579" max-vertical-offset="1672">
               <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
               <folding />
             </state>
@@ -42,20 +41,32 @@
       <file leaf-file-name="EvaluatingEstimator.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SVM/EvaluatingEstimator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="579" max-vertical-offset="1056">
-              <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="1056">
+              <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SVM.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SVM.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45727482" vertical-offset="0" max-vertical-offset="616">
-              <caret line="9" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="117" max-vertical-offset="616">
+              <caret line="9" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="e#121#160#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kNN.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.74595845" vertical-offset="337" max-vertical-offset="858">
+              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+              <folding>
+                <element signature="e#117#156#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,9 +93,10 @@
         <option value="$PROJECT_DIR$/SVM/SVM.py" />
         <option value="$PROJECT_DIR$/SVM/__init__.py" />
         <option value="$PROJECT_DIR$/SVM/DataHandler.py" />
-        <option value="$PROJECT_DIR$/SVM/EvaluatingEstimator.py" />
         <option value="$PROJECT_DIR$/SVM.py" />
+        <option value="$PROJECT_DIR$/SVM/EvaluatingEstimator.py" />
         <option value="$PROJECT_DIR$/kNN.py" />
+        <option value="$PROJECT_DIR$/PCA_SVM.py" />
       </list>
     </option>
   </component>
@@ -166,7 +178,7 @@
       <recent name="C:\WorkspaceDisk\boson\SVM" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.SVM">
+  <component name="RunManager" selected="Python.kNN">
     <configuration default="false" name="SVM" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -221,6 +233,24 @@
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="kNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="boson" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kNN.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
@@ -344,16 +374,18 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.SVM" />
       <item index="1" class="java.lang.String" itemvalue="Python.SVM (1)" />
       <item index="2" class="java.lang.String" itemvalue="Python.DataHandler" />
+      <item index="3" class="java.lang.String" itemvalue="Python.kNN" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.SVM" />
-        <item index="1" class="java.lang.String" itemvalue="Python.SVM (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.DataHandler" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.kNN" />
+        <item index="1" class="java.lang.String" itemvalue="Python.SVM" />
+        <item index="2" class="java.lang.String" itemvalue="Python.SVM (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.DataHandler" />
       </list>
     </recent_temporary>
   </component>
@@ -574,14 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SVM/EvaluatingEstimator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="579" max-vertical-offset="1056">
-          <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SVM/DataHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1107" max-vertical-offset="1672">
@@ -592,10 +616,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45727482" vertical-offset="0" max-vertical-offset="616">
-          <caret line="9" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="117" max-vertical-offset="616">
+          <caret line="9" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#121#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SVM/EvaluatingEstimator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="579" max-vertical-offset="1056">
+          <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74595845" vertical-offset="337" max-vertical-offset="858">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding>
+            <element signature="e#117#156#0" expanded="true" />
           </folding>
         </state>
       </provider>
