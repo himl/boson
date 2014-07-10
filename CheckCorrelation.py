@@ -23,22 +23,20 @@ def correlation_matrix(data):
     result_matrix = dict.fromkeys(data.keys())
     from scipy.stats import pearsonr
     for first_column in data:
-        # result_matrix[first_column] = dict.fromkeys(data.keys())
+        result_matrix[first_column] = dict.fromkeys(data.keys())
         first_sample = data[first_column][data[first_column] != EMPTY_VALUE]
         for second_column in data:
             second_sample = data[second_column][data[second_column] != EMPTY_VALUE]
             min_rows = min(first_sample.shape[0], second_sample.shape[0])
-            # result_matrix[first_column][second_column] = pearsonr(
-            #     first_sample[:min_rows], second_sample[:min_rows])
-            result = pearsonr(first_sample[:min_rows], second_sample[:min_rows])
-#            if abs(result[0]) > 0.5 and first_column != second_column:
-            print first_column, second_column, result
+            result_matrix[first_column][second_column] = pearsonr(
+                first_sample[:min_rows], second_sample[:min_rows])
+            print first_column, second_column, result_matrix[first_column][second_column]
     print "Pearson correlation coefficients have calculated!"
 
 import time
 start = time.time()
 
-trainingData = pd.read_csv("../resources/training.csv")
+trainingData = pd.read_csv("./resources/training.csv")
 
 signals = trainingData[trainingData.Label == 's'].drop(['EventId', 'Weight', 'Label'], 1)
 backgrounds = trainingData[trainingData.Label == 'b'].drop(['EventId', 'Weight', 'Label'], 1)
