@@ -6,12 +6,13 @@ import numpy as np
 
 from SVM.DataHandler import DataHandler
 from sklearn.cross_validation import KFold
-from sklearn import svm
 from sklearn.decomposition import RandomizedPCA
+# from sklearn import svm
+from sklearn import neighbors
 
 
 DEFAULT_FOLDS_NUMBER = 5
-DEFAULT_COMPONENTS_NUMBER = 26
+DEFAULT_COMPONENTS_NUMBER = 10
 
 
 def pca_estimator(data, targets, estimator, components_number=DEFAULT_COMPONENTS_NUMBER,
@@ -58,7 +59,8 @@ if __name__ == "__main__":
     # best_time = 0
 
     # estimator = svm.SVC(kernel='linear', C=1)
-    estimator = svm.SVC(kernel='rbf', C=1, gamma=0.0001)
+    # estimator = svm.SVC(kernel='rbf', C=1, gamma=0.0001)
+    estimator = neighbors.KNeighborsClassifier(n_neighbors=12)
 
     for n_components in xrange(1, 100):
         mean, standart_deviation = pca_estimator(training_data, training_targets, estimator,
@@ -70,7 +72,7 @@ if __name__ == "__main__":
             # best_time = time
         print(n_components)
 
-    # n_components = 26
+    # n_components = 10
     # mean, standart_deviation, time = pca_estimator(training_data, training_targets, estimator,
     #                                          n_components)
     # best_components_number = n_components
