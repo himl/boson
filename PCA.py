@@ -11,11 +11,11 @@ from sklearn.decomposition import RandomizedPCA
 
 
 DEFAULT_FOLDS_NUMBER = 5
-DEFAULT_COMPONENTS_NUMBER = 5
+DEFAULT_COMPONENTS_NUMBER = 26
 
 
-def pca_svm(data, targets, components_number=DEFAULT_COMPONENTS_NUMBER,
-            folds_number=DEFAULT_FOLDS_NUMBER):
+def pca_estimator(data, targets, estimator, components_number=DEFAULT_COMPONENTS_NUMBER,
+                  folds_number=DEFAULT_FOLDS_NUMBER):
 
     kf = KFold(len(targets), n_folds=folds_number)
 
@@ -24,8 +24,6 @@ def pca_svm(data, targets, components_number=DEFAULT_COMPONENTS_NUMBER,
     scores = np.zeros(folds_number)
 
     # start = time()
-
-    estimator = svm.SVC(kernel='linear', C=1)
 
     index = 0
     for train, test in kf:
@@ -58,14 +56,27 @@ if __name__ == "__main__":
     best_mean = 0
     best_standart_deviation = 0
     # best_time = 0
+
+    # estimator = svm.SVC(kernel='linear', C=1)
+    estimator = svm.SVC(kernel='rbf', C=1, gamma=0.0001)
+
     for n_components in xrange(1, 100):
-        mean, standart_deviation = pca_svm(training_data, training_targets, n_components)
+        mean, standart_deviation = pca_estimator(training_data, training_targets, estimator,
+                                                 n_components)
         if mean > best_mean:
             best_components_number = n_components
             best_mean = mean
             best_standart_deviation = standart_deviation
             # best_time = time
         print(n_components)
+
+    # n_components = 26
+    # mean, standart_deviation, time = pca_estimator(training_data, training_targets, estimator,
+    #                                          n_components)
+    # best_components_number = n_components
+    # best_mean = mean
+    # best_standart_deviation = standart_deviation
+    # best_time = time
 
     print("N_components: %d" % best_components_number)
     print("Accuracy: %0.2f (+/- %0.2f)" % (best_mean, best_standart_deviation))
