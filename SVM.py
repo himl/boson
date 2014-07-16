@@ -4,6 +4,7 @@
 
 from SVM.DataHandler import DataHandler
 from SVM.EvaluatingEstimator import cross_validation_for_grid
+from SVM.EvaluatingEstimator import cross_validation
 from sklearn import svm
 from sklearn.grid_search import GridSearchCV
 
@@ -15,6 +16,13 @@ def find_best_linear_param(data, targets):
     return cross_validation_for_grid(estimator, data, targets)
 
 
+def find_best_rbf_param(data, targets):
+    param_grid = {'C': [1, 10, 100, 1e3, 5e3, 1e4, 5e4, 1e5],
+                  'gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1], }
+    estimator = GridSearchCV(svm.SVC(kernel='rbf'), param_grid)
+    return cross_validation_for_grid(estimator, data, targets)
+
+
 if __name__ == "__main__":
     data_handler = DataHandler()
     all_data, all_targets = data_handler.read_training_data()
@@ -23,9 +31,11 @@ if __name__ == "__main__":
     data = all_data[-samples_size:]
     targets = all_targets[-samples_size:]
 
-    mean, standart_deviation, time = find_best_linear_param(data, targets)
+    # mean, standart_deviation, time = find_best_linear_param(data, targets)
+    mean, standart_deviation, time = find_best_rbf_param(data, targets)
 
     # estimator = svm.SVC(kernel='linear', C=1)
+    # estimator = svm.SVC(kernel='rbf', C=1, gamma=0.0001)
     # mean, standart_deviation, time = cross_validation(estimator, data, targets)
 
     print("Accuracy: %0.2f (+/- %0.2f)" % (mean, standart_deviation))
