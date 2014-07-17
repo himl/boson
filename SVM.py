@@ -23,6 +23,15 @@ def find_best_rbf_param(data, targets):
     return cross_validation_for_grid(estimator, data, targets)
 
 
+def learn_by_one_feature(data, targets, estimator):
+    for columnNumber in xrange(19, data.shape[1]):
+        mean, standart_deviation, time = cross_validation(estimator,
+            data[:, columnNumber:columnNumber + 1], targets)
+        print("Column number: %d" % columnNumber)
+        print("Accuracy: %0.2f (+/- %0.2f)" % (mean, standart_deviation))
+        print("Time: %0.2f" % time)
+
+
 if __name__ == "__main__":
     data_handler = DataHandler()
     all_data, all_targets = data_handler.read_training_data()
@@ -31,13 +40,15 @@ if __name__ == "__main__":
     data = all_data[-samples_size:]
     targets = all_targets[-samples_size:]
 
-    # mean, standart_deviation, time = find_best_linear_param(data, targets)
-    mean, standart_deviation, time = find_best_rbf_param(data, targets)
-
     # estimator = svm.SVC(kernel='linear', C=1)
     # estimator = svm.SVC(kernel='rbf', C=1, gamma=0.0001)
     # mean, standart_deviation, time = cross_validation(estimator, data, targets)
 
-    print("Accuracy: %0.2f (+/- %0.2f)" % (mean, standart_deviation))
-    print("Time: %0.2f" % time)
+    # mean, standart_deviation, time = find_best_linear_param(data, targets)
+    # mean, standart_deviation, time = find_best_rbf_param(data, targets)
 
+    estimator = svm.SVC(kernel='linear', C=1)
+    learn_by_one_feature(data, targets, estimator)
+
+    # print("Accuracy: %0.2f (+/- %0.2f)" % (mean, standart_deviation))
+    # print("Time: %0.2f" % time)
