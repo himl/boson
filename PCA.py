@@ -45,7 +45,7 @@ def pca_estimator(data, targets, estimator, components_number=DEFAULT_COMPONENTS
 
 if __name__ == "__main__":
     data_handler = DataHandler()
-    all_data, all_targets = data_handler.read_training_data()
+    all_data, all_targets = data_handler.get_training_data()
 
     samples_size = 5000
     training_data = all_data[-samples_size:]

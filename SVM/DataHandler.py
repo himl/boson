@@ -15,10 +15,10 @@ class DataHandler:
 
     def remove_empty_values_marks(self, data):
         """ This method gets data and replaces __EMPTY_VALUE value to object None. """
-        
+
         import numpy as np
         data_new = np.ndarray(shape=data.shape, dtype=data.dtype)
- 
+
         __ACCURACY = 0.00001
 
         sample_number = 0
@@ -33,9 +33,9 @@ class DataHandler:
             sample_number += 1
         print("Remove marks about empty values has done!")
         return data_new
-    
-    def read_training_data(self, training_file=__DEFAULT_PATH_TO_TRAINING_FILE,
-                           samples_size=__TRAINING_SAMPLES_SIZE):
+
+    def get_training_data(self, training_file=__DEFAULT_PATH_TO_TRAINING_FILE,
+                          samples_size=__TRAINING_SAMPLES_SIZE):
         """" This method returns two object:
         'data' is two dimensions numpy array. The first index is a sample number,
         the second index is feature. The both index is numbers.
@@ -53,8 +53,8 @@ class DataHandler:
         # return self.remove_empty_values_marks(data), target
         return data, target
 
-    def read_test_data(self, test_file=__DEFAULT_PATH_TO_TEST_FILE,
-                       samples_size=__TEST_SAMPLES_SIZE):
+    def get_test_data(self, test_file=__DEFAULT_PATH_TO_TEST_FILE,
+                      samples_size=__TEST_SAMPLES_SIZE):
         """" This method returns one object:
         'data' is two dimensions numpy array. The first index is a sample number,
         the second index is feature. The both index is numbers. """
@@ -67,3 +67,8 @@ class DataHandler:
         data = test_data.ix[:samples_size - 1, 1:].values
         print("Test samples has read!")
         return data
+
+    def get_headers(self):
+        import pandas as pd
+        training_data = pd.read_csv(self.__DEFAULT_PATH_TO_TRAINING_FILE)
+        return training_data.columns.values[1:-2]
