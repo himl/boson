@@ -24,7 +24,7 @@ def find_best_rbf_param(data, targets):
 
 
 def learn_by_one_feature(data, targets, estimator):
-    for columnNumber in xrange(19, data.shape[1]):
+    for columnNumber in range(19, data.shape[1]):
         mean, standart_deviation, time = cross_validation(estimator,
             data[:, columnNumber:columnNumber + 1], targets)
         print("Column number: %d" % columnNumber)
@@ -47,8 +47,8 @@ if __name__ == "__main__":
     # mean, standart_deviation, time = find_best_linear_param(data, targets)
     # mean, standart_deviation, time = find_best_rbf_param(data, targets)
 
-    estimator = svm.SVC(kernel='linear', C=1)
-    learn_by_one_feature(data, targets, estimator)
-
     # print("Accuracy: %0.2f (+/- %0.2f)" % (mean, standart_deviation))
     # print("Time: %0.2f" % time)
+
+    estimator = svm.SVC(kernel='linear', C=1)
+    learn_by_one_feature(data, targets, estimator)

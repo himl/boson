@@ -14,8 +14,8 @@ def signals_backgrounds_correlation(signals, backgrounds):
     for column in signals:
         first_sample = signals[column][signals[column] != EMPTY_VALUE]
         second_sample = backgrounds[column][backgrounds[column] != EMPTY_VALUE]
-        print column, ks_2samp(first_sample, second_sample)
-    print "KS-test have finished!"
+        print(column, ks_2samp(first_sample, second_sample))
+    print("KS-test have finished!")
 
 
 def correlation_matrix(data):
@@ -30,8 +30,9 @@ def correlation_matrix(data):
             min_rows = min(first_sample.shape[0], second_sample.shape[0])
             result_matrix[first_column][second_column] = pearsonr(
                 first_sample[:min_rows], second_sample[:min_rows])
-            print first_column, second_column, result_matrix[first_column][second_column]
-    print "Pearson correlation coefficients have calculated!"
+            print(first_column, second_column, result_matrix[first_column][second_column])
+    print("Pearson correlation coefficients have calculated!")
+
 
 import time
 start = time.time()
@@ -46,4 +47,4 @@ signals_backgrounds_correlation(signals, backgrounds)
 # correlation_matrix(backgrounds)
 
 finish = time.time()
-print "Total time:", finish - start
+print("Total time:", finish - start)

@@ -1,13 +1,12 @@
 # -*- coding: UTF-8 -*-
-""" PCA + Linear SVM """
 
 import numpy as np
-# from time import time
+from time import time
 
 from SVM.DataHandler import DataHandler
 from sklearn.cross_validation import KFold
 from sklearn.decomposition import RandomizedPCA
-# from sklearn import svm
+from sklearn import svm
 from sklearn import neighbors
 
 
@@ -24,7 +23,7 @@ def pca_estimator(data, targets, estimator, components_number=DEFAULT_COMPONENTS
     # predicted samples from a test.
     scores = np.zeros(folds_number)
 
-    # start = time()
+    start = time()
 
     index = 0
     for train, test in kf:
@@ -39,10 +38,9 @@ def pca_estimator(data, targets, estimator, components_number=DEFAULT_COMPONENTS
         index += 1
         # print("Iteration %d from %d has done! Score: %f" % (index, folds_number,
         #                                                     scores[index - 1]))
-    # finish = time()
+    finish = time()
 
-    # return scores.mean(), scores.std() * 2, (finish - start)
-    return scores.mean(), scores.std() * 2
+    return scores.mean(), scores.std() * 2, (finish - start)
 
 
 if __name__ == "__main__":
@@ -56,30 +54,22 @@ if __name__ == "__main__":
     best_components_number = 0
     best_mean = 0
     best_standart_deviation = 0
-    # best_time = 0
+    best_time = 0
 
     # estimator = svm.SVC(kernel='linear', C=1)
-    # estimator = svm.SVC(kernel='rbf', C=1, gamma=0.0001)
-    estimator = neighbors.KNeighborsClassifier(n_neighbors=12)
+    estimator = svm.SVC(kernel='rbf', C=1, gamma=0.0001)
+    # estimator = neighbors.KNeighborsClassifier(n_neighbors=12)
 
-    for n_components in xrange(1, 100):
-        mean, standart_deviation = pca_estimator(training_data, training_targets, estimator,
-                                                 n_components)
+    for n_components in range(1, 100):
+        mean, standart_deviation, work_time = pca_estimator(training_data, training_targets, estimator,
+                                                            n_components)
         if mean > best_mean:
             best_components_number = n_components
             best_mean = mean
             best_standart_deviation = standart_deviation
-            # best_time = time
+            best_time = work_time
         print(n_components)
-
-    # n_components = 10
-    # mean, standart_deviation, time = pca_estimator(training_data, training_targets, estimator,
-    #                                          n_components)
-    # best_components_number = n_components
-    # best_mean = mean
-    # best_standart_deviation = standart_deviation
-    # best_time = time
 
     print("N_components: %d" % best_components_number)
     print("Accuracy: %0.2f (+/- %0.2f)" % (best_mean, best_standart_deviation))
-    # print("Time: %0.2f" % best_time)
+    print("Time: %0.2f" % best_time)

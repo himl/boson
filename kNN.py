@@ -6,6 +6,7 @@ from SVM.DataHandler import DataHandler
 from SVM.EvaluatingEstimator import cross_validation
 from sklearn import neighbors
 
+
 if __name__ == "__main__":
     data_handler = DataHandler()
     all_data, all_targets = data_handler.read_training_data()
@@ -18,7 +19,7 @@ if __name__ == "__main__":
     best_standart_deviation = 0
     best_time = 0
     best_neighbors_number = 0
-    for neighbors_number in xrange(1, 500):
+    for neighbors_number in range(1, 500):
         estimator = neighbors.KNeighborsClassifier(n_neighbors=neighbors_number)
         mean, standart_deviation, time = cross_validation(estimator, data, targets)
         if mean > best_mean:
