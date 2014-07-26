@@ -9,39 +9,6 @@ def skip_empty_values(column):
     return [value for value in column if value != EMPTY_VALUE]
 
 
-def scatterplot(data, data_name, c=None):
-    """Makes a scatterplot matrix:
-     Inputs:
-         data - a list of data [dataX, dataY,dataZ,...];
-                  all elements must have same length
-         data_name - a list of descriptions of the data;
-                  len(data) should be equal to len(data_name)
-    Output:
-         fig - matplotlib.figure.Figure Object
-    """
-    N = len(data)
-    fig = plt.figure(figsize=(15, 12))
-    for i in range(N):
-        for j in range(N):
-            ax = fig.add_subplot(N, N, i*N+j+1)
-            if j == 0:
-                ax.set_ylabel(data_name[i],size='12')
-            if i == 0:
-                ax.set_title(data_name[j],size='12')
-            if i == j:
-                ax.hist(data[i], 10)
-            else:
-                corrected_first_column = skip_empty_values(data[j])
-                corrected_second_column = skip_empty_values(data[i])
-                if c is not None:
-                    ax.scatter(corrected_first_column, corrected_second_column, c=c, alpha=0.5,
-                               cmap='rainbow')
-                else:
-                    ax.scatter(corrected_first_column, corrected_second_column, alpha=0.5,
-                               cmap='rainbow')
-    return fig
-
-
 def by_one_features(training_data, training_targets, test_data, headers):
     signals, backgrounds = split_training_data(training_data, training_targets)
 
@@ -99,6 +66,96 @@ def by_one_features(training_data, training_targets, test_data, headers):
         print("Column # " + str(index) + " " + headers[index] + ": ok!")
 
 
+def skip_empty_values_from_pair(first_column, second_column):
+    corrected_first_column = [first_value for index, first_value in enumerate(first_column)
+                              if first_value != EMPTY_VALUE and
+                              second_column[index] != EMPTY_VALUE]
+    corrected_second_column = [second_value for index, second_value in enumerate(second_column)
+                               if second_value != EMPTY_VALUE and
+                               first_column[index] != EMPTY_VALUE]
+    return corrected_first_column, corrected_second_column
+
+
+def by_pair_features(training_data, training_targets, test_data, headers):
+    signals, backgrounds = split_training_data(training_data, training_targets)
+
+    subplots_number = 3
+    for first_feature in range(training_data.shape[1]):
+        for second_feature in range(first_feature + 1, training_data.shape[1]):
+            signals_corrected_first_feature, signals_corrected_second_feature = \
+                skip_empty_values_from_pair(signals[:, first_feature], signals[:, second_feature])
+
+            backgrounds_corrected_first_feature, backgrounds_corrected_second_feature = \
+                skip_empty_values_from_pair(backgrounds[:, first_feature], backgrounds[:,
+                                                                           second_feature])
+
+            test_corrected_first_feature, test_corrected_second_feature = \
+                skip_empty_values_from_pair(test_data[:, first_feature], test_data[:,
+                                                                         second_feature])
+
+            min_first_value = min(min(signals_corrected_first_feature),
+                                  min(backgrounds_corrected_first_feature),
+                                  min(test_corrected_first_feature), 0)
+            max_first_value = max(max(signals_corrected_first_feature),
+                                  max(backgrounds_corrected_first_feature),
+                                  max(test_corrected_first_feature))
+
+            min_second_value = min(min(signals_corrected_second_feature),
+                                  min(backgrounds_corrected_second_feature),
+                                  min(test_corrected_second_feature), 0)
+            max_second_value = max(max(signals_corrected_second_feature),
+                                  max(backgrounds_corrected_second_feature),
+                                  max(test_corrected_second_feature))
+
+            fig = plt.figure(figsize=(15, 12))
+
+            # signals
+            ax = fig.add_subplot(subplots_number, 1, 1)
+            ax.set_title("signals", size='14')
+
+            plt.xlim(min_first_value, max_first_value)
+            ax.set_ylabel(headers[first_feature], size='12')
+
+            plt.ylim(min_second_value, max_second_value)
+            ax.set_xlabel(headers[second_feature], size='12')
+
+            ax.scatter(signals_corrected_first_feature, signals_corrected_second_feature,
+                       alpha=0.5, color='green')
+
+            # backgrounds
+            ax = fig.add_subplot(subplots_number, 1, 2)
+            ax.set_title("backgrounds", size='14')
+
+            plt.xlim(min_first_value, max_first_value)
+            ax.set_ylabel(headers[first_feature], size='12')
+
+            plt.ylim(min_second_value, max_second_value)
+            ax.set_xlabel(headers[second_feature], size='12')
+
+            ax.scatter(backgrounds_corrected_first_feature, backgrounds_corrected_second_feature,
+                       alpha=0.5, color='blue')
+
+            # test
+            ax = fig.add_subplot(subplots_number, 1, 3)
+            ax.set_title("test", size='14')
+
+            plt.xlim(min_first_value, max_first_value)
+            ax.set_ylabel(headers[first_feature], size='12')
+
+            plt.ylim(min_second_value, max_second_value)
+            ax.set_xlabel(headers[second_feature], size='12')
+
+            ax.scatter(test_corrected_first_feature, test_corrected_second_feature, alpha=0.5,
+                       color='yellow')
+
+            fig.tight_layout()
+            fig.savefig('reports/by_pair_features/' +
+                        str(first_feature) + " " + headers[first_feature] + "-" +
+                        str(second_feature) + " " + headers[second_feature] + '.png', dpi=120)
+            print("Columns # " + str(first_feature) + "_" + headers[first_feature] + "-" +
+                  str(second_feature) + "_" + headers[second_feature] + ": ok!")
+
+
 def split_training_data(data, targets):
     signals_indices = [index for index, value in enumerate(targets) if value == 's']
     backgrounds_indices = [index for index, value in enumerate(targets) if value == 'b']
@@ -111,4 +168,5 @@ if __name__ == "__main__":
     test_data = data_handler.get_test_data()
     headers = data_handler.get_headers()
 
-    by_one_features(training_data, training_targets, test_data, headers)
+    # by_one_features(training_data, training_targets, test_data, headers)
+    by_pair_features(training_data, training_targets, test_data, headers)

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55af5ac6-6788-41cc-8a68-ef361cdb9119" name="Default" comment="">
-      <change type="DELETED" beforePath="F:\My program\Higgs Boson Machine Learning Challenge\boson\report\Report.xlsx" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/pairFeatures.png" afterPath="$PROJECT_DIR$/reports/pairFeatures.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualisation.py" afterPath="$PROJECT_DIR$/Visualisation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="boson.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,10 +28,11 @@
       <file leaf-file-name="Visualisation.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Visualisation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.1847575" vertical-offset="902" max-vertical-offset="2640">
-              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8983834" vertical-offset="2185" max-vertical-offset="2706">
+              <caret line="171" column="73" selection-start-line="171" selection-start-column="73" selection-end-line="171" selection-end-column="73" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#271#2452#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -70,6 +68,7 @@
         <option value="$PROJECT_DIR$/PCA.py" />
         <option value="$PROJECT_DIR$/SVM.py" />
         <option value="$PROJECT_DIR$/SVM/DataHandler.py" />
+        <option value="$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/axes.py" />
         <option value="$PROJECT_DIR$/Visualisation.py" />
       </list>
     </option>
@@ -757,14 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/axes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33256352" vertical-offset="137290" max-vertical-offset="206932">
-          <caret line="6257" column="0" selection-start-line="6257" selection-start-column="0" selection-end-line="6257" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PCA.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="1628">
@@ -829,12 +820,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53579676" vertical-offset="137290" max-vertical-offset="206932">
+          <caret line="6261" column="16" selection-start-line="6261" selection-start-column="16" selection-end-line="6261" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Visualisation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1847575" vertical-offset="902" max-vertical-offset="2640">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8983834" vertical-offset="2185" max-vertical-offset="2706">
+          <caret line="171" column="73" selection-start-line="171" selection-start-column="73" selection-end-line="171" selection-end-column="73" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#271#2452#0" expanded="false" />
           </folding>
         </state>
       </provider>
