@@ -48,10 +48,20 @@ class DataHandler:
         # The first column is 'EventId', the last but one 'Weight', the last 'Label'.
         # These third columns must be skip
         data = training_data.ix[0:samples_size - 1, 1:-2].values
-        target = training_data["Label"][:samples_size].values
+        targets = training_data["Label"][:samples_size].values
         print("Training samples has read!")
         # return self.remove_empty_values_marks(data), target
-        return data, target
+        return data, targets
+
+    def split(self, data, targets):
+        signals_indices = [index for index, value in enumerate(targets) if value == 's']
+        backgrounds_indices = [index for index, value in enumerate(targets) if value == 'b']
+        return data[signals_indices], data[backgrounds_indices]
+
+    def get_separate_training_data(self, training_file=__DEFAULT_PATH_TO_TRAINING_FILE,
+                                   samples_size=__TRAINING_SAMPLES_SIZE):
+        data, targets = self.get_training_data(training_file, samples_size)
+        return self.split(data, targets)
 
     def get_test_data(self, test_file=__DEFAULT_PATH_TO_TEST_FILE,
                       samples_size=__TEST_SAMPLES_SIZE):
