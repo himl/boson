@@ -15,7 +15,7 @@ def find_best_linear_param(data, targets):
     estimator = GridSearchCV(svm.SVC(kernel='linear'), param_grid)
     return cross_validation_for_grid(estimator, data, targets)
 
-
+1
 def find_best_rbf_param(data, targets):
     param_grid = {'C': [1, 10, 100, 1e3, 5e3, 1e4, 5e4, 1e5],
                   'gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1], }
@@ -24,7 +24,7 @@ def find_best_rbf_param(data, targets):
 
 
 def learn_by_one_feature(data, targets, estimator):
-    for columnNumber in range(19, data.shape[1]):
+    for columnNumber in range(data.shape[1]):
         mean, standart_deviation, time = cross_validation(estimator,
             data[:, columnNumber:columnNumber + 1], targets)
         print("Column number: %d" % columnNumber)
