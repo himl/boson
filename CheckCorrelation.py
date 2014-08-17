@@ -37,7 +37,10 @@ def pearson_correlation_matrix(headers, data):
             result_matrix[first_header][second_header] = pearsonr(
                 first_sample[:min_rows_number], second_sample[:min_rows_number])
 
-            print(first_header, second_header, result_matrix[first_header][second_header])
+            if (abs(result_matrix[first_header][second_header][0]) >= 0.90 and
+                        abs(result_matrix[first_header][second_header][0]) != 1):
+                print(first_index, first_header, second_index, second_header,
+                      result_matrix[first_header][second_header])
     print("Pearson correlation coefficients have calculated!")
     return result_matrix
 
@@ -60,10 +63,10 @@ headers = data_handler.get_headers()
 
 # signals_backgrounds_correlation(headers, signals, backgrounds)
 
-# correlation_matrix_signals = pearson_correlation_matrix(headers, signals)
+correlation_matrix_signals = pearson_correlation_matrix(headers, signals)
 # file_name = "./reports/correlation/Pearson_correlation_signals.csv"
 # write_to_csv(file_name, headers, correlation_matrix_signals)
 
-correlation_matrix_backgrounds = pearson_correlation_matrix(headers, backgrounds)
-file_name = "./reports/correlation/Pearson_correlation_backgrounds.csv"
-write_to_csv(file_name, headers, correlation_matrix_backgrounds)
+# correlation_matrix_backgrounds = pearson_correlation_matrix(headers, backgrounds)
+# file_name = "./reports/correlation/Pearson_correlation_backgrounds.csv"
+# write_to_csv(file_name, headers, correlation_matrix_backgrounds)
