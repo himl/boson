@@ -110,8 +110,8 @@ class DataHandler:
             dummy dummy_encode_categorical_columns """
         training_data = pd.read_csv(training_file)
         training_targets = training_data["Label"][:training_samples_size].values
-        training_data = training_data.drop('Weight', axis=1)
         training_data = training_data.drop('Label', axis=1)
+        training_data = training_data.drop('Weight', axis=1)
 
         test_data = pd.read_csv(test_file)
         print("Data has read!")
@@ -134,3 +134,8 @@ class DataHandler:
         test_samples = dummy_test_data.ix[:test_samples_size - 1, :].values
 
         return training_samples, training_targets, test_samples
+
+    def get_weights(self, training_file=__DEFAULT_PATH_TO_TRAINING_FILE,
+                    training_samples_size=__TRAINING_SAMPLES_SIZE):
+        training_data = pd.read_csv(training_file)
+        return training_data["Weight"][:training_samples_size].values
